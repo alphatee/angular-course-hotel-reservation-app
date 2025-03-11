@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Reservation } from '../models/reservation';
-import { FormBuilder } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,7 @@ export class ReservationService {
 
   addReservation(reservation: Reservation): void {
 
-    reservation.id = Date.now().toString()
+    reservation.id = Date.now().toString();
 
     this.reservations.push(reservation);
     localStorage.setItem("reservations", JSON.stringify(this.reservations));
@@ -43,4 +42,5 @@ export class ReservationService {
     this.reservations[index] = updatedReservation;
     localStorage.setItem("reservations", JSON.stringify(this.reservations));
   }
+
 }
